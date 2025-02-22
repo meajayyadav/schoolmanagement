@@ -4,6 +4,9 @@ export const AUTHAPI={
 signup:APIURL + "api/auth/signup",
 signin:APIURL + "api/auth/login"
 }
+export const Addmission={
+createAddmission:APIURL + "api/admission"
+}
 
 export function fetchDataFromLocalStore() {
     // Fetch and parse data from localStorage

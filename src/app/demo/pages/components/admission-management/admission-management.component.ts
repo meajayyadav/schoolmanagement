@@ -4,24 +4,26 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SharedModule } from 'src/app/demo/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import * as global from '../../../../../globals'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admission-management',
-  imports:[NgSelectModule, FormsModule, ReactiveFormsModule, CommonModule,SharedModule,NgxPaginationModule],
-  standalone:true,
+  imports: [NgSelectModule, FormsModule, ReactiveFormsModule, CommonModule, SharedModule, NgxPaginationModule,HttpClientModule],
+  standalone: true,
   templateUrl: './admission-management.component.html',
   styleUrl: './admission-management.component.scss'
 })
 export class AdmissionManagementComponent implements OnInit {
-  lastName:any;firstName:any;gender:any;course:any
+  lastName: any; firstName: any; gender: any; className: any
   isCollapsed = false; // Controls collapse state
-  admissionForm: FormGroup;academicYear:any
+  admissionForm: FormGroup; academicYear: any
   academicYearOptions = [
     { academicYear: '2023-2024' },
     { academicYear: '2024-2025' },
   ];
-  
+
   // Sample dropdown data
   genderOptions = [
     { label: 'Male', value: 'M' },
@@ -39,27 +41,38 @@ export class AdmissionManagementComponent implements OnInit {
     { name: 'Semester 3', id: 3 },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.admissionForm = this.fb.group({
       firstName: [''],
       lastName: [''],
-      dob: [''],
+      dateOfBirth: [''],
       gender: [''],
       email: [''],
-      phone: [''],
-      course: [''],
-      semester: [''],
+      phoneNumber: [''],
+      className: [''],
+      // semester: [''],
       academicYear: [''],
     });
   }
-ngOnInit(): void {
+  ngOnInit(): void {
 
-}
+  }
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
   }
+addObj:any ={}
+  onSubmit(val: any) {
+   
+    this.http.post(global.Addmission.createAddmission, JSON.stringify(val), { headers: global.HeaderValue }).subscribe((data: any) => {
+      if (data) {
 
-  onSubmit(val:any) {
+        Swal.fire({
+          text: data['message'],
+          icon: 'success'
+        });
+        this.admissionForm.reset();
+      }
+    })
     console.log(this.admissionForm.value);
   }
 

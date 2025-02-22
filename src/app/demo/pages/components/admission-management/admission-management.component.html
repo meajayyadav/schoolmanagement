@@ -40,7 +40,7 @@
             </div>
             <div class="form-group col-xl-3">
               <label>Date of Birth</label>
-              <input type="date" class="form-control" formControlName="dob" />
+              <input type="date" class="form-control" formControlName="dateOfBirth" />
             </div>
 
             <div class="form-group col-xl-3">
@@ -57,13 +57,13 @@
 
             <div class="form-group col-xl-3">
               <label>Phone Number</label>
-              <input type="tel" class="form-control" formControlName="phone" placeholder="Phone Number" />
+              <input type="tel" class="form-control" formControlName="phoneNumber" placeholder="Phone Number" />
             </div>
 
             <div class="form-group col-xl-3">
               <label>Class</label>
               <ng-select [items]="courseOptions" bindLabel="name" bindValue="id" placeholder="Select Course"
-                formControlName="course" [(ngModel)]="course">
+                formControlName="className" [(ngModel)]="className">
               </ng-select>
             </div>
 

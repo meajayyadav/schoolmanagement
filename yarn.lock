@@ -243,7 +243,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^17.0.2", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@>=17.3.0", "@angular/common@>=5.0.0 <9.0.0", "@angular/common@19.0.5":
+"@angular/common@^17.0.2", "@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@^19.0.1", "@angular/common@>=13.0.0", "@angular/common@>=17.3.0", "@angular/common@>=5.0.0 <9.0.0", "@angular/common@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/common/-/common-19.0.5.tgz"
   integrity sha512-fFK+euCj1AjBHBCpj9VnduMSeqoMRhZZHbhPYiND7tucRRJ8vwGU0sYK2KI/Ko+fsrNIXL/0O4F36jVPl09Smg==
@@ -271,7 +271,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^17.0.2", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@^19.0.5", "@angular/core@>=17.3.0", "@angular/core@>=5.0.0 <9.0.0", "@angular/core@19.0.5":
+"@angular/core@^17.0.2", "@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@^19.0.1", "@angular/core@^19.0.5", "@angular/core@>=13.0.0", "@angular/core@>=17.3.0", "@angular/core@>=5.0.0 <9.0.0", "@angular/core@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/core/-/core-19.0.5.tgz"
   integrity sha512-Ywc6sPO6G/Y1stfk3y/MallV/h0yzQ0vdOHRWueLrk5kD1DTdbolV4X03Cs3PuVvravgcSVE3nnuuHFuH32emQ==
@@ -299,7 +299,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^19.0.0 || ^20.0.0", "@angular/platform-browser@19.0.5":
+"@angular/platform-browser@^19.0.0 || ^20.0.0", "@angular/platform-browser@^19.0.1", "@angular/platform-browser@19.0.5":
   version "19.0.5"
   resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-19.0.5.tgz"
   integrity sha512-41+Jo5DEil4Ifvv+UE/p1l9YJtYN+xfhx+/C9cahVgvV5D2q+givyK73d0Mnb6XOfe1q+hoV5lZ+XhQYp21//g==
@@ -1850,6 +1850,13 @@
   resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-5.1.5.tgz"
   integrity sha512-SaCZ3kM5NjOiJqMRYwHpLbTfUC2Dyk1KS3QanNFsUYPGTk70CWVK/J9ueun6zNhw/UkgV7xl8V4ZLQZNRbfnNw==
 
+"@types/jquery@^3.5.32":
+  version "3.5.32"
+  resolved "https://registry.npmjs.org/@types/jquery/-/jquery-3.5.32.tgz"
+  integrity sha512-b9Xbf4CkMqS02YH8zACqN1xzdxc3cO735Qe5AbSUFmyOiaWAbcpqh9Wna+Uk0vgACvoQHpWDg2rGdHkYPLmCiQ==
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/json-schema@*", "@types/json-schema@^7.0.15", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.15"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz"
@@ -1912,6 +1919,11 @@
     "@types/http-errors" "*"
     "@types/node" "*"
     "@types/send" "*"
+
+"@types/sizzle@*":
+  version "2.3.9"
+  resolved "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.9.tgz"
+  integrity sha512-xzLEyKB50yqCUPUJkIsrVvoWNfFUbIZI+RspLWt8u+tIW/BetMBZtgV2LY/2o+tYH8dRvQ+eoPf3NdhQCcLE2w==
 
 "@types/sockjs@^0.3.36":
   version "0.3.36"
@@ -2292,6 +2304,13 @@ ajv@^8.0.0, ajv@^8.8.2, ajv@^8.9.0, ajv@8.17.1:
     fast-uri "^3.0.1"
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
+
+angular-datatables@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.npmjs.org/angular-datatables/-/angular-datatables-19.0.0.tgz"
+  integrity sha512-cxG4/1ew1lqwEkZ7qhxH1zkAh/MP1vwQQrMdxQTtcWJtgi0na83Ds46Pe41XKIuq3aEEuE0O0oCV1ANTAD4d1w==
+  dependencies:
+    tslib "^2.3.0"
 
 ansi-colors@4.1.3:
   version "4.1.3"
@@ -2959,6 +2978,29 @@ custom-event@~1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/custom-event/-/custom-event-1.0.1.tgz"
   integrity sha512-GAj5FOq0Hd+RsCGVJxZuKaIDXDf3h6GQoNEjFgbLLI/trgtavwUbSnZ5pVfg27DVCaWjIohryS0JFwIJyT2cMg==
+
+datatables.net-bs4@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-2.2.1.tgz"
+  integrity sha512-YJpbGGTqrOhS6p8BolGv16mdmljaq4ewhc0dbm3yd02UQ86A2cWQ2tDq6lE966tvRD43JE0PPAc5wLgsRozReg==
+  dependencies:
+    datatables.net "2.2.1"
+    jquery ">=1.7"
+
+datatables.net-dt@^2.0.3, datatables.net-dt@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/datatables.net-dt/-/datatables.net-dt-2.2.1.tgz"
+  integrity sha512-ca2hFyyuwkLnZxa8hGuSP5oD+r9gQitOrbXRwuT0bPSnIR5qx39KTHbK7QayUjl2iXTUdYah7PnQT8A80RuTXw==
+  dependencies:
+    datatables.net "2.2.1"
+    jquery ">=1.7"
+
+datatables.net@^2.0.3, datatables.net@^2.2.1, datatables.net@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/datatables.net/-/datatables.net-2.2.1.tgz"
+  integrity sha512-Hz7f+a77xGdroAzej88aobT5nkQIJ2Oy1JI7yh2cl0QAXQSJDXOKkOLknu+nphVP8CP8w9MtLCmwMst/F8niiQ==
+  dependencies:
+    jquery ">=1.7"
 
 date-format@^4.0.14:
   version "4.0.14"
@@ -4339,6 +4381,11 @@ jiti@*, jiti@^1.20.0:
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.21.0.tgz"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
+jquery@^3.6.0, jquery@^3.7.1, jquery@>=1.7:
+  version "3.7.1"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
+  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -5049,6 +5096,13 @@ ng-select@^1.0.2:
   integrity sha512-QMh5NqnYrsK18J8vmRBjpcv4o9euGd5Grs+4sutNNWWDX65rJlLh+S6oUq3uvo35S2v/ZMcMMR/e5f0gMlwxlA==
   dependencies:
     tslib "^1.9.0"
+
+ngx-pagination@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.3.tgz"
+  integrity sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw==
+  dependencies:
+    tslib "^2.3.0"
 
 ngx-scrollbar@16.1.1:
   version "16.1.1"
@@ -5900,7 +5954,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.5 || ^7.4.0", rxjs@>=7.0.0, rxjs@~7.8.1, rxjs@7.8.1:
+"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.5 || ^7.4.0", rxjs@^7.4.0, rxjs@>=7.0.0, rxjs@~7.8.1, rxjs@7.8.1:
   version "7.8.1"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz"
   integrity sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==

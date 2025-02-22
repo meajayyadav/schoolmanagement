@@ -1,81 +1,173 @@
-<div class="admission-form-container">
-    <mat-card>
-      <mat-card-title>Student Admission Form</mat-card-title>
-      <mat-card-content>
-        <form [formGroup]="admissionForm" (ngSubmit)="onSubmit()" class="form-grid">
-          <div class="form-field">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Full Name</mat-label>
-              <input matInput formControlName="name" placeholder="Enter your name" />
-              <mat-error *ngIf="admissionForm.get('name')?.hasError('required')">
-                Name is required.
-              </mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="form-field">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email" type="email" placeholder="Enter your email" />
-              <mat-error *ngIf="admissionForm.get('email')?.hasError('required')">
-                Email is required.
-              </mat-error>
-              <mat-error *ngIf="admissionForm.get('email')?.hasError('email')">
-                Enter a valid email address.
-              </mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="form-field">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Phone Number</mat-label>
-              <input matInput formControlName="phone" type="tel" placeholder="Enter your phone number" />
-              <mat-error *ngIf="admissionForm.get('phone')?.hasError('required')">
-                Phone number is required.
-              </mat-error>
-              <mat-error *ngIf="admissionForm.get('phone')?.hasError('pattern')">
-                Enter a valid phone number.
-              </mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="form-field">
-            <mat-radio-group formControlName="gender" class="full-width radio-group">
-              <mat-label>Gender</mat-label>
-              <div>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
-              </div>
-              <mat-error *ngIf="admissionForm.get('gender')?.hasError('required')">
-                Gender is required.
-              </mat-error>
-            </mat-radio-group>
-          </div>
-  
-          <div class="form-field">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Course</mat-label>
-              <mat-select formControlName="course">
-                <mat-option value="science">Science</mat-option>
-                <mat-option value="arts">Arts</mat-option>
-                <mat-option value="commerce">Commerce</mat-option>
-              </mat-select>
-              <mat-error *ngIf="admissionForm.get('course')?.hasError('required')">
-                Course selection is required.
-              </mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="form-actions">
-            <button mat-raised-button color="primary" type="submit" [disabled]="admissionForm.invalid">
-              Submit
-            </button>
-            <button mat-button type="reset" (click)="onReset()">Reset</button>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-card>
+<div class="card shadow-none">
+  <!-- Collapsible Header -->
+  <div class="card-header d-flex justify-content-between align-items-center py-2 px-2 fs-7" (click)="toggleCollapse()"
+    [ngClass]="{ 'bg-light': !isCollapsed, 'bg-white': isCollapsed }">
+    <div>
+      <strong>Student Admission Form</strong>
+    </div>
+    <div class="text-end">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
+        [ngClass]="{ 'rotate-down': isCollapsed, 'rotate-up': !isCollapsed }">
+        <image
+          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAXRJREFUSEvd1sErJ3EYx/GXs4sDLtKWm9wVibKRctk/w8FJiEIrHDbkplz36uCiduXC1ro4OSptUQ6k9rB7Zx7NtD+W34zROJjLd2Z6ns/7+3nmO8/32+DfNY5ptNe8K3t7gS/YDIGGVGUdE2UV6+QFaCYgn7BTASCTHA3IEXoqhOwH5C8aK4TcBOS2QsC99PuHbOMMsy8o5Ve04ePjnOfK1Y1jLGGuAGgZ8xjBt6KQX+jFVbLyVpMVOFkHtIap1MUPdBSFRFyA+nFZB7SYBH7GBxym43/zyVtd5xhAjI8dxezDRQB+pk6eNJwHiaRwEo7CWQbKAFGaKFF88GevIpBIvk5Bp8msh7CPThwknbY1b2EUhYTODfoQoK4U0JwHKPPH/8YWxtBUBFAGUlT3QdxLylUK8KZOqt5P/kS59pLdcbh0LfITdwMyit382NIRg9lpZSHtQdlzacWaxNhxozOv1IpGe49j0SBaXkGJzv0dGzgJnTtyPUjg1wdUAwAAAABJRU5ErkJggg=="
+          x="0" y="0" width="25" height="25" />
+      </svg>
+    </div>
   </div>
 
-  <button class="btn btn-primary">sub</button>
-  
+  <!-- Collapsible Content -->
+  <div id="collapseStudentForm" class="collapse" [ngClass]="{ 'show': !isCollapsed }" style="line-height: 2.4rem;">
+    <div class="card-body">
+      <div class="card-section">
+        <form [formGroup]="admissionForm" (ngSubmit)="onSubmit(admissionForm.value)">
+          <div class="row">
+            <div class="form-group col-xl-3">
+              <label>Academic Year</label>
+              <ng-select [items]="academicYearOptions" bindLabel="academicYear" bindValue="academicYear"
+                formControlName="academicYear" placeholder="Academic Year" [(ngModel)]="academicYear">
+              </ng-select>
+            </div>
+
+            <div class="form-group col-xl-3">
+              <label>First Name</label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" />
+            </div>
+            <div class="form-group col-xl-3">
+              <label>Last Name</label>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name"
+                [(ngModel)]="lastName" />
+
+            </div>
+            <div class="form-group col-xl-3">
+              <label>Date of Birth</label>
+              <input type="date" class="form-control" formControlName="dob" />
+            </div>
+
+            <div class="form-group col-xl-3">
+              <label>Gender</label>
+              <ng-select [items]="genderOptions" bindLabel="label" bindValue="value" placeholder="Select Gender"
+                formControlName="gender" [(ngModel)]="gender">
+              </ng-select>
+            </div>
+
+            <div class="form-group col-xl-3">
+              <label>Email</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="Email Address" />
+            </div>
+
+            <div class="form-group col-xl-3">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" formControlName="phone" placeholder="Phone Number" />
+            </div>
+
+            <div class="form-group col-xl-3">
+              <label>Class</label>
+              <ng-select [items]="courseOptions" bindLabel="name" bindValue="id" placeholder="Select Course"
+                formControlName="course" [(ngModel)]="course">
+              </ng-select>
+            </div>
+
+            <div class="form-group col-lg-4 col-xl-3 col-sm-3 col-md-3 col-xs-12" style="margin-top: 2rem;">
+              <button type="submit" class="btn btn-secondary btn-round">Submit</button>&nbsp;
+              <button type="button" class="btn btn-warning btn-round"> Clear</button>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="card shadow-none">
+  <div class="card-header d-flex justify-content-between align-items-center py-2 px-2 fs-7">
+    <div class="defaultState">
+      <strong>List Of Students</strong>
+    </div>
+    <div class="global-search">
+
+      <input type="text" id="globalSearch" class="form-control" placeholder="Search..." />
+    </div>
+  </div>
+  <div class="body">
+    <div class="row">
+      <div class="col-lg-12 col-xl12 col-sm-12 col-md-12 col-xs-12">
+
+        <table id="example" class="table table-striped row-border hover" style="width:100%">
+          <thead>
+            <tr style="text-align: center;">
+              <th>S.NO</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Date Of Birth</th>
+              <th>Phone Number</th>
+              <th>Class</th>
+              <th>Action </th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center;">
+
+            <tr style="line-height: 50px;">
+              <td>1</td>
+              <td>Ajay Yadav</td>
+
+              <td>24Y</td>
+              <td>Male</td>
+              <td>06-06-1999</td>
+              <td>9934585885</td>
+              <td>10th</td>
+              <td>
+                <div class="btn-group" style="margin-top: -8px">
+                  <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown"
+                    >
+                    Actions
+                  </button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" type="button"><i
+                        class="zmdi zmdi-edit"></i>
+                      Edit
+                    </button>
+
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+            <tr style="line-height: 50px;">
+              <td>1</td>
+              <td>Ajay Yadav</td>
+
+              <td>24Y</td>
+              <td>Male</td>
+              <td>06-06-1999</td>
+              <td>9934585885</td>
+              <td>10th</td>
+              <td>
+                <div class="btn-group" style="margin-top: -8px">
+                  <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown"
+                    aria-expanded="false">
+                    Actions
+                  </button>
+                  <div class="dropdown-menu">
+                    <button class="dropdown-item" type="button"><i
+                        class="zmdi zmdi-edit"></i>
+                      Edit
+                    </button>
+
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls id="work_table" 
+        >
+    </pagination-controls>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,4 +1,4 @@
-let APIURL ="http://192.168.1.34:3000/"
+let APIURL ="http://192.168.65.220:3000/"
 
 export const AUTHAPI={
 signup:APIURL + "api/auth/signup",

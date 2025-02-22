@@ -22,6 +22,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // project
 import { CardComponent } from 'src/app/@theme/components/card/card.component';
@@ -36,8 +38,10 @@ const MaterialModules = [
   MatCheckboxModule,
   MatDividerModule,
   MatIconModule,
+  MatDatepickerModule,
   MatMenuModule,
   MatInputModule,
+  MatNativeDateModule,
   MatSlideToggleModule,
   MatBadgeModule,
   MatFormFieldModule,
@@ -51,6 +55,7 @@ const MaterialModules = [
     MatCardModule,
     MatSelectModule,
     MatRadioModule,
+    
     
 ];
 
